@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recruitment</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Recruitment</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/candidates">Recruitment</a>
+            <a href="/employee_support">Employee Support</a>
+            <a href="/analytics">Analytics</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Add Candidate</h2>
+        <form id="candidateForm">
+            <label>Name:</label>
+            <input type="text" name="name" required>
+            <label>Email:</label>
+            <input type="email" name="email" required>
+            <label>Skills (comma-separated):</label>
+            <input type="text" name="skills" required>
+            <button type="submit">Add Candidate</button>
+        </form>
+        <h2>Candidates</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Skills</th>
+            </tr>
+            {% for candidate in candidates %}
+            <tr>
+                <td>{{ candidate[1] }}</td>
+                <td>{{ candidate[2] }}</td>
+                <td>{{ candidate[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </main>
+</body>
+</html>

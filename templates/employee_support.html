@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Support</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Employee Support</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/candidates">Recruitment</a>
+            <a href="/employee_support">Employee Support</a>
+            <a href="/analytics">Analytics</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Submit Query</h2>
+        <form id="queryForm">
+            <label>Name:</label>
+            <input type="text" name="employee_name" required>
+            <label>Query:</label>
+            <textarea name="query" required></textarea>
+            <button type="submit">Submit Query</button>
+        </form>
+        <h2>Queries</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Query</th>
+                <th>Response</th>
+            </tr>
+            {% for query in queries %}
+            <tr>
+                <td>{{ query[1] }}</td>
+                <td>{{ query[2] }}</td>
+                <td>{{ query[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </main>
+</body>
+</html>

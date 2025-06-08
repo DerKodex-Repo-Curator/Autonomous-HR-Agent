@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analytics</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Analytics</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/candidates">Recruitment</a>
+            <a href="/employee_support">Employee Support</a>
+            <a href="/analytics">Analytics</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Workforce Insights</h2>
+        <p>Total Candidates: {{ total_candidates }}</p>
+        <p>Total Queries: {{ total_queries }}</p>
+        <h3>Skills Distribution</h3>
+        <ul>
+            {% for skill, count in skills_count.items() %}
+            <li>{{ skill }}: {{ count }}</li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>
