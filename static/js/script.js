@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: formData
             });
             const result = await response.json();
-            alert(result.message);
+            alert(`${result.message}\nSkills: ${result.skills}\nOnboarding: Welcome email sent to candidate!`);
             location.reload();
         });
     }

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Analytics</title>
     <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -19,12 +20,12 @@
         <h2>Workforce Insights</h2>
         <p>Total Candidates: {{ total_candidates }}</p>
         <p>Total Queries: {{ total_queries }}</p>
-        <h3>Skills Distribution</h3>
-        <ul>
-            {% for skill, count in skills_count.items() %}
-            <li>{{ skill }}: {{ count }}</li>
-            {% endfor %}
-        </ul>
+        <h3>Counts Chart</h3>
+        <canvas id="countsChart" width="400" height="200"></canvas>
+        <script>
+            const ctx = document.getElementById('countsChart').getContext('2d');
+            new Chart(ctx, {{ chart_config | tojson }});
+        </script>
     </main>
 </body>
 </html>

@@ -23,8 +23,8 @@
             <input type="text" name="name" required>
             <label>Email:</label>
             <input type="email" name="email" required>
-            <label>Skills (comma-separated):</label>
-            <input type="text" name="skills" required>
+            <label>Resume Text:</label>
+            <textarea name="resume_text" rows="5" required placeholder="Paste resume content here"></textarea>
             <button type="submit">Add Candidate</button>
         </form>
         <h2>Candidates</h2>
@@ -32,13 +32,15 @@
             <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Skills</th>
+                <th>Resume Text</th>
+                <th>Extracted Skills</th>
             </tr>
             {% for candidate in candidates %}
             <tr>
                 <td>{{ candidate[1] }}</td>
                 <td>{{ candidate[2] }}</td>
-                <td>{{ candidate[3] }}</td>
+                <td>{{ candidate[3][:100] }}...</td>
+                <td>{{ candidate[4] }}</td>
             </tr>
             {% endfor %}
         </table>

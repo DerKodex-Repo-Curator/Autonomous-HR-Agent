@@ -3,13 +3,11 @@ import sqlite3
 def init_db():
     conn = sqlite3.connect('hr_database.db')
     c = conn.cursor()
-    # Create candidates table
     c.execute('''CREATE TABLE IF NOT EXISTS candidates
                  (id INTEGER PRIMARY KEY AUTOINCREMENT,
                   name TEXT NOT NULL,
                   email TEXT NOT NULL,
-                  skills TEXT NOT NULL)''')
-    # Create queries table
+                  resume_text TEXT NOT NULL)''')  # Replaced skills with resume_text
     c.execute('''CREATE TABLE IF NOT EXISTS queries
                  (id INTEGER PRIMARY KEY AUTOINCREMENT,
                   employee_name TEXT NOT NULL,
@@ -18,11 +16,11 @@ def init_db():
     conn.commit()
     conn.close()
 
-def add_candidate(name, email, skills):
+def add_candidate(name, email, resume_text):
     conn = sqlite3.connect('hr_database.db')
     c = conn.cursor()
-    c.execute("INSERT INTO candidates (name, email, skills) VALUES (?, ?, ?)",
-              (name, email, skills))
+    c.execute("INSERT INTO candidates (name, email, resume_text) VALUES (?, ?, ?)",
+              (name, email, resume_text))
     conn.commit()
     conn.close()
 
